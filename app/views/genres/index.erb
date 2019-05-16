@@ -1,0 +1,9 @@
+<h1>These are some genres:</h1>
+<h4><a href="/">Back to home</a></h4>
+<ul>
+    <% @genres.each do |g|%>
+        <li>
+            <a href="/genres/<%= Slug.slugify(g.name) %>"><%= g.name %></a>
+        </li>
+    <% end %>
+</ul>

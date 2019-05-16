@@ -1,0 +1,24 @@
+<% if @errors %>
+<h3 style="color: red;">Errors to Correct</h3>
+<ul>
+  <% @errors.each do |message| %>
+    <li class="error"><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+
+<form method="POST" action="/songs">
+    <label for="name"></label>
+    <input  type ="text" name="name" placeholder="song title"/>
+    <label for="artist"></label>
+    <input type="text" name="artist" placeholder="artist name">
+    <label for="genre"></label>
+    <% Genre.all.each do |genre| %>
+        <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+        <%= genre.name %>
+        </input>
+    <% end %>
+    <br>
+    <input type="submit" value="add song"></input>
+</form>

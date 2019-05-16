@@ -1,0 +1,9 @@
+<h1>Look at all these Artists:</h1>
+<h4><a href="/">Back to home</a></h4>
+<ul>
+    <% @artists.each do |a|%>
+        <li>
+            <a href="/artists/<%= Slug.slugify(a.name) %>"><%= a.name %></a>
+        </li>
+    <% end %>
+</ul>

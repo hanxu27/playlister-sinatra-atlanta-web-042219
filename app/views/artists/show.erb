@@ -1,0 +1,15 @@
+<h1>Name:<%= @artist.name %></h1>
+<h2>Genres: 
+    <ul>
+        <% @artist.genres.each do |g|%>
+            <li><a href="/genres/<%= Slug.slugify(g.name) %>"><%= g.name%></a></li>
+        <% end %>
+    </ul>
+</h2>
+<h2>Songs: 
+    <ul>
+        <% @artist.songs.each do |s| %>
+            <li><a href="/songs/<%= Slug.slugify(s.name) %>"><%= s.name %></a></li>
+        <% end %>
+    </ul>
+</h2>
