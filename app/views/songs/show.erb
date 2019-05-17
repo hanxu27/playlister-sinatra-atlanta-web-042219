@@ -1,4 +1,8 @@
-<h1>Name:<%= @song.name %></h1>
+<h1>Name: <%= @song.name %></h1>
+
+<form action="/songs/<%= Slug.slugify(@song.name) %>/edit" method="get">
+    <input type="submit" value="Edit Song">
+</form>
 <h2>Artist: <a href="/artists/<%= Slug.slugify(@song.artist.name) %>"> <%= @song.artist.name %></a></h2>
 
 <h2>Genres: 

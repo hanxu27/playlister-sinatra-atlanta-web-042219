@@ -1,0 +1,28 @@
+<% if @errors %>
+<h3 style="color: red;">Errors to Correct</h3>
+<ul>
+  <% @errors.each do |message| %>
+    <li class="error"><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+
+<form method="Post" action="/songs/<%= Slug.slugify(@song.name) %>">
+    <input id="hidden" type="hidden" name="_method" value="patch"> 
+    <label for="name"></label>
+    <input  type ="text" name="Song[name]" value="<%= @song.name %>"><br><br>
+    <label for="artist"></label>
+    <input type="text" name="Song[artist]" value="<%= @song.artist.name %>"><br><br>
+    <label for="genre"></label>
+    <% Genre.all.each do |genre| %>
+            <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>" 
+            <% if @song.genre_ids.include?(genre.id) %>
+            checked
+            <% end %> >
+            <%= genre.name %>
+            </input><br>
+    <% end %>
+    <br>
+    <input type="submit" value="Edit Song"></input>
+</form>

@@ -1,5 +1,10 @@
 <h1>Look at all these songs:</h1>
 <h4><a href="/">Back to home</a></h4>
+<h4>
+<form action="/songs/new" method="get">
+    <input type="submit" value="New Song">
+</form>
+</h4>
 <ul>
     <%@songs.each do |s|%>
         <li>
